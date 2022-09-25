@@ -1,12 +1,29 @@
 import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 import ReactDOM from 'react-dom/client';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 import { useCallback, useState } from 'react';
 import { DndProvider, useDrop, useDrag } from 'react-dnd';
-import styled from 'styled-components';
+import RotatingCube from './RotatingCube';
+import { TopNavigation } from './TopNavigation';
+import { BottomNavigation } from './BottomNavigation';
+import { LeftSidebar } from './LeftSidebar';
 
-export const Container = () => {
+const App = () => {
+  return (
+    <>
+      <GlobalStyle />
+      <DndProvider backend={HTML5Backend}>
+        <AppLayout />
+      </DndProvider>
+    </>
+  );
+};
+
+export default App;
+
+const AppLayout = () => {
   const [boxes, setBoxes] = useState({
     a: { top: 50, left: 100, title: 'configure Store -saucezar' },
     b: { top: 100, left: 100, title: 'store - sun or lamp' },
@@ -23,6 +40,7 @@ export const Container = () => {
     n: { top: 650, left: 100, title: 'useDispatch safe/pistol' },
     o: { top: 700, left: 100, title: 'dispatch' },
   });
+
   const moveBox = useCallback(
     (id, left, top) => {
       setBoxes(
@@ -49,7 +67,7 @@ export const Container = () => {
     [moveBox]
   );
   return (
-    <StyledContainer ref={drop}>
+    <BasicLayout ref={drop}>
       {Object.keys(boxes).map(key => {
         const { left, top, title } = boxes[key];
         return (
@@ -58,7 +76,12 @@ export const Container = () => {
           </Box>
         );
       })}
-    </StyledContainer>
+
+      <RotatingCube />
+      <LeftSidebar />
+      <TopNavigation />
+      <BottomNavigation />
+    </BasicLayout>
   );
 };
 
@@ -83,16 +106,33 @@ const Box = ({ id, left, top, children }) => {
   );
 };
 
-function App() {
-  return (
-    <DndProvider backend={HTML5Backend}>
-      <Container />
-    </DndProvider>
-  );
-}
+export const GlobalStyle = createGlobalStyle`
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+  `;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+const BasicLayout = styled.div`
+  background: grey;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: black;
+  position: relative;
+`;
 
 const StyledBox = styled.div`
   box-sizing: border-box;
@@ -106,9 +146,5 @@ const StyledBox = styled.div`
   user-select: none;
 `;
 
-const StyledContainer = styled.div`
-  width: 100%;
-  height: 800px;
-  border: 1px solid black;
-  position: relative;
-`;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
