@@ -1,5 +1,5 @@
-import CubeIcon from './CubeIcon';
 import styled from 'styled-components';
+import CubeIcon from './CubeIcon';
 
 const sidebarData = [
   { id: 1, name: 'Error', mainColor: 'red' },
@@ -13,12 +13,16 @@ const sidebarData = [
   { id: 9, name: 'Number', mainColor: 'black' },
 ];
 
-export const LeftSidebar = () => {
+export const LeftSidebar = ({ showModal }) => {
   return (
     <OverlayTopMenu>
       <LeftMenu>
         {sidebarData.map(data => (
-          <BaseButton key={data.id}>
+          <BaseButton
+            key={data.id}
+            id={data.id}
+            onClick={() => showModal(data.name)}
+          >
             <LoadingContentWrapper>
               <ContentWrapper mainColor={data.mainColor}>
                 <BaseIcon>

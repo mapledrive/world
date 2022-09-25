@@ -36,7 +36,7 @@ const Cube = props => {
 };
 
 Cube.defaultProps = {
-  edge: '100',
+  edge: '150',
   background: 'rgba(141, 148, 249, 0.5)',
   fontSize: '50',
 };
@@ -45,7 +45,7 @@ export default Cube;
 
 /* start cube */
 const Container = styled.div`
-  min-height: 100vh;
+  height: 300px;
   width: 100%;
   display: flex;
   flex-direction: column;

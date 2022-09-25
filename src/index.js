@@ -5,10 +5,10 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 import { useCallback, useState } from 'react';
 import { DndProvider, useDrop, useDrag } from 'react-dnd';
-import RotatingCube from './RotatingCube';
 import { TopNavigation } from './TopNavigation';
 import { BottomNavigation } from './BottomNavigation';
 import { LeftSidebar } from './LeftSidebar';
+import { ModalComponent } from './ModalComponent';
 import OpenSans from './fonts/opensans.woff2';
 
 const App = () => {
@@ -25,6 +25,20 @@ const App = () => {
 export default App;
 
 const AppLayout = () => {
+  const [builtin, setBuiltin] = useState('');
+
+  const showModal = name => {
+    if (builtin === name) {
+      hideModal();
+    } else {
+      setBuiltin(name);
+    }
+  };
+
+  const hideModal = () => {
+    setBuiltin('');
+  };
+
   const [boxes, setBoxes] = useState({
     a: { top: 50, left: 100, title: 'configure Store -saucezar' },
     b: { top: 100, left: 100, title: 'store - sun or lamp' },
@@ -77,11 +91,14 @@ const AppLayout = () => {
           </Box>
         );
       })}
-
-      <RotatingCube />
-      <LeftSidebar />
+      <LeftSidebar showModal={showModal} />
       <TopNavigation />
       <BottomNavigation />
+      <ModalComponent
+        showModal={showModal}
+        hideModal={hideModal}
+        builtin={builtin}
+      />
     </BasicLayout>
   );
 };
