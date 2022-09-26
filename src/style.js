@@ -47,12 +47,14 @@ export const ContentWrapperSidebar = styled.div`
   width: 75px;
   transition: all 300ms;
   margin: 0;
-  padding: 28px 0 0 0;
+  padding: 33px 0 0 0;
   border: 0;
-  font-size: 14px;
+  font-size: 12px;
   color: ${props => props.mainColor};
-  font-family: 'Open Sans', sans-serif;
+  font-family: Roboto, sans-serif;
   overflow: hidden;
+  text-transform: uppercase;
+  font-weight: 500;
 `;
 
 export const BaseIconSidebar = styled.div`
@@ -123,12 +125,14 @@ export const ContentWrapper = styled.div`
   width: 75px;
   transition: all 300ms;
   margin: 0;
-  padding: 28px 0 0 0;
+  padding: 33px 0 0 0;
   border: 0;
-  font-size: 14px;
+  font-size: 12px;
   color: ${props => props.mainColor};
-  font-family: 'Open Sans', sans-serif;
+  font-family: Roboto, sans-serif;
   overflow: hidden;
+  text-transform: uppercase;
+  font-weight: 500;
 `;
 
 export const BaseIcon = styled.div`
