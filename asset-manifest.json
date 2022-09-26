@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/world/static/js/main.5a871c25.js",
+    "main.js": "/world/static/js/main.cd1d15f8.js",
     "static/media/opensans.woff2": "/world/static/media/opensans.a1535f451fb7bb98f526.woff2",
     "index.html": "/world/index.html",
-    "main.5a871c25.js.map": "/world/static/js/main.5a871c25.js.map"
+    "main.cd1d15f8.js.map": "/world/static/js/main.cd1d15f8.js.map"
   },
   "entrypoints": [
-    "static/js/main.5a871c25.js"
+    "static/js/main.cd1d15f8.js"
   ]
 }
