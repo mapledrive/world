@@ -13,12 +13,16 @@ const footerData = [
   { id: 8, name: 'AsyncFunc', mainColor: '#ffbf00' },
 ];
 
-export const BottomNavigation = props => {
+export const BottomNavigation = ({ showModal }) => {
   return (
     <OverlayBottomMenu>
       <BottomMenu>
         {footerData.map(data => (
-          <BaseButton key={data.id}>
+          <BaseButton
+            key={data.id}
+            id={data.id}
+            onClick={() => showModal(data.name)}
+          >
             <LoadingContentWrapper>
               <ContentWrapper mainColor={data.mainColor}>
                 <BaseIcon>

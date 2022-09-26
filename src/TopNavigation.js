@@ -18,12 +18,16 @@ const headerData = [
   { id: 13, name: 'DataView', mainColor: 'red' },
 ];
 
-export const TopNavigation = props => {
+export const TopNavigation = ({ showModal }) => {
   return (
     <OverlayTopMenu>
       <BottomMenu>
         {headerData.map(data => (
-          <BaseButton key={data.id}>
+          <BaseButton
+            key={data.id}
+            id={data.id}
+            onClick={() => showModal(data.name)}
+          >
             <LoadingContentWrapper>
               <ContentWrapper mainColor={data.mainColor}>
                 <BaseIcon>

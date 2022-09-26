@@ -92,8 +92,8 @@ const AppLayout = () => {
         );
       })}
       <LeftSidebar showModal={showModal} />
-      <TopNavigation />
-      <BottomNavigation />
+      <TopNavigation showModal={showModal} />
+      <BottomNavigation showModal={showModal} />
       <ModalComponent
         showModal={showModal}
         hideModal={hideModal}
