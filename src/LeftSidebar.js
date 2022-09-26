@@ -3,10 +3,10 @@ import {
   OverlayTopMenuSidebar,
   LeftMenu,
   BaseButtonSidebar,
-  LoadingContentWrapperSidebar,
-  ContentWrapperSidebar,
-  BaseIconSidebar,
-  SettingsIconSidebar,
+  LoadingContentWrapper,
+  ContentWrapper,
+  BaseIcon,
+  SettingsIcon,
 } from './style';
 
 const sidebarData = [
@@ -31,16 +31,16 @@ export const LeftSidebar = ({ showModal }) => {
             id={data.id}
             onClick={() => showModal(data.name)}
           >
-            <LoadingContentWrapperSidebar>
-              <ContentWrapperSidebar mainColor={data.mainColor}>
-                <BaseIconSidebar>
-                  <SettingsIconSidebar>
+            <LoadingContentWrapper>
+              <ContentWrapper mainColor={data.mainColor}>
+                <BaseIcon>
+                  <SettingsIcon>
                     <CubeIcon mainColor={data.mainColor} />
-                  </SettingsIconSidebar>
-                </BaseIconSidebar>
+                  </SettingsIcon>
+                </BaseIcon>
                 {data.name}
-              </ContentWrapperSidebar>
-            </LoadingContentWrapperSidebar>
+              </ContentWrapper>
+            </LoadingContentWrapper>
           </BaseButtonSidebar>
         ))}
       </LeftMenu>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// Sidebar Menu
 export const OverlayTopMenuSidebar = styled.section`
   transform: translate(11px, -50%);
   top: 50vh;
@@ -33,52 +34,14 @@ export const BaseButtonSidebar = styled.button`
   border: none;
   cursor: pointer;
   outline: 0 !important;
+  &:hover {
+    background: #2c2c2c;
+  }
 `;
 
-export const LoadingContentWrapperSidebar = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 75px;
-`;
+// Top Menu
 
-export const ContentWrapperSidebar = styled.div`
-  position: relative;
-  width: 75px;
-  transition: all 300ms;
-  margin: 0;
-  padding: 33px 0 0 0;
-  border: 0;
-  font-size: 12px;
-  color: ${props => props.mainColor};
-  font-family: Roboto, sans-serif;
-  overflow: hidden;
-  text-transform: uppercase;
-  font-weight: 500;
-`;
-
-export const BaseIconSidebar = styled.div`
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  position: absolute;
-  height: 28px;
-  width: 28px;
-  transition: all 300ms;
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: 0;
-`;
-
-export const SettingsIconSidebar = styled.svg`
-  transition: fill 300ms;
-  fill: #fff;
-  display: block;
-  height: 100%;
-  width: 100%;
-`;
-
+// Wrapper to only center the menu
 export const OverlayTopMenu = styled.section`
   transform: translate(-50%, 11px);
   left: 50vw;
@@ -87,23 +50,33 @@ export const OverlayTopMenu = styled.section`
   position: fixed;
 `;
 
+export const OverlayBottomMenu = styled.section`
+  transform: translate(-50%, 11px);
+  left: 50vw;
+  bottom: 21px;
+  transition: transform 250ms;
+  position: fixed;
+`;
+
+// Grey rounded shape
 export const HorizontalMenu = styled.div`
   border-radius: 25px;
   background: #393939;
   display: flex;
-  padding: 5px 25px;
+  padding: 0px 25px;
   position: relative;
   transition: padding 400ms;
   box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.2);
 `;
 
+// Button with background color size padding height
 export const BaseButton = styled.button`
   font-size: 14px;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 9px;
+  padding: 5px 9px;
   max-height: 60px;
   transition: max-height 150ms, padding 300ms;
   position: relative;
@@ -111,8 +84,12 @@ export const BaseButton = styled.button`
   border: none;
   cursor: pointer;
   outline: 0 !important;
+  &:hover {
+    background: #2c2c2c;
+  }
 `;
 
+// flex with width and centering horizontally
 export const LoadingContentWrapper = styled.div`
   position: relative;
   display: flex;
@@ -120,6 +97,7 @@ export const LoadingContentWrapper = styled.div`
   width: 75px;
 `;
 
+// block with text
 export const ContentWrapper = styled.div`
   position: relative;
   width: 75px;
@@ -135,6 +113,7 @@ export const ContentWrapper = styled.div`
   font-weight: 500;
 `;
 
+// centering wrapper for icon - kvadratik 28x28
 export const BaseIcon = styled.div`
   top: 0;
   left: 50%;
@@ -149,18 +128,11 @@ export const BaseIcon = styled.div`
   border: 0;
 `;
 
+// style for svg - raspiraet na ves parent
 export const SettingsIcon = styled.svg`
   transition: fill 300ms;
   fill: #fff;
   display: block;
   height: 100%;
   width: 100%;
-`;
-
-export const OverlayBottomMenu = styled.section`
-  transform: translate(-50%, 11px);
-  left: 50vw;
-  bottom: 21px;
-  transition: transform 250ms;
-  position: fixed;
 `;
