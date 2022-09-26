@@ -85,7 +85,7 @@ export const OverlayTopMenu = styled.section`
   position: fixed;
 `;
 
-export const BottomMenu = styled.div`
+export const HorizontalMenu = styled.div`
   border-radius: 25px;
   background: #393939;
   display: flex;
@@ -151,4 +151,12 @@ export const SettingsIcon = styled.svg`
   display: block;
   height: 100%;
   width: 100%;
+`;
+
+export const OverlayBottomMenu = styled.section`
+  transform: translate(-50%, 11px);
+  left: 50vw;
+  bottom: 21px;
+  transition: transform 250ms;
+  position: fixed;
 `;

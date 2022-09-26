@@ -1,7 +1,7 @@
 import CubeIcon from './CubeIcon';
 import {
   OverlayTopMenu,
-  BottomMenu,
+  HorizontalMenu,
   BaseButton,
   LoadingContentWrapper,
   ContentWrapper,
@@ -28,7 +28,7 @@ const headerData = [
 export const TopNavigation = ({ showModal }) => {
   return (
     <OverlayTopMenu>
-      <BottomMenu>
+      <HorizontalMenu>
         {headerData.map(data => (
           <BaseButton
             key={data.id}
@@ -47,7 +47,7 @@ export const TopNavigation = ({ showModal }) => {
             </LoadingContentWrapper>
           </BaseButton>
         ))}
-      </BottomMenu>
+      </HorizontalMenu>
     </OverlayTopMenu>
   );
 };
