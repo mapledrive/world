@@ -12,7 +12,7 @@ import { Modal } from './Modal';
 import OpenSans from './fonts/opensans.woff2';
 import Roboto from './fonts/roboto.woff2';
 import img from './caezar.jpg';
-import lamp from './lamp.svg';
+//  import lamp from './lamp.svg';
 import frog from './frog.jpg';
 import provider from './provider.jpg';
 import app from './app.png';
