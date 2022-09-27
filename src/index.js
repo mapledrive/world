@@ -24,6 +24,7 @@ import safe from './safe.jpg';
 import disruptor from './disruptor.jpg';
 import bullet from './bullet.jpg';
 import slice from './slice.jpg';
+import sun from './sun.jpg';
 
 const App = () => {
   return (
@@ -60,7 +61,7 @@ const AppLayout = () => {
       title: 'configure Store',
       image: `${img}`,
     },
-    b: { top: 100, left: 100, title: 'store', image: `${lamp}` },
+    b: { top: 100, left: 100, title: 'store', image: `${sun}` },
     c: {
       top: 150,
       left: 100,
