@@ -1,19 +1,32 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+function getRandomNumberBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(getRandomNumberBetween(-120, 20));
+const faceData = [
+  { face: 1, angle: 'rotateY(270deg)', name: 1 },
+  { face: 2, angle: 'rotateY(360deg)', name: 2 },
+  { face: 3, angle: 'rotateY(90deg)', name: 3 },
+  { face: 4, angle: 'rotateY(180deg)', name: 4 },
+  { face: 5, angle: 'rotateX(90deg)', name: 5 },
+  { face: 6, angle: 'rotateX(-90deg)', name: 6 },
+];
+
+const lopast = [
+  { id: 3, tall: '360', up: getRandomNumberBetween(-120, 20), name: 3 },
+  { id: 1, tall: '180', up: getRandomNumberBetween(-120, 20), name: 1 },
+  { id: 2, tall: '270', up: getRandomNumberBetween(-120, 20), name: 2 },
+  { id: 4, tall: '90', up: getRandomNumberBetween(-120, 20), name: 4 },
+];
+
 const Cube = props => {
   const { edge, background, fontSize } = props;
   const [currentRotation, setCurrentRotation] = useState(45);
   const handleSpin = () => setCurrentRotation(currentRotation + 90);
 
-  const faceData = [
-    { face: 1, angle: 'rotateY(270deg)', name: 1 },
-    { face: 2, angle: 'rotateY(360deg)', name: 2 },
-    { face: 3, angle: 'rotateY(90deg)', name: 3 },
-    { face: 4, angle: 'rotateY(180deg)', name: 4 },
-    { face: 5, angle: 'rotateX(90deg)', name: 5 },
-    { face: 6, angle: 'rotateX(-90deg)', name: 6 },
-  ];
   return (
     <Container>
       <Scene currentRotation={currentRotation} edge={edge}>
@@ -28,6 +41,18 @@ const Cube = props => {
             >
               {data.name}
             </Face>
+          ))}
+          {lopast.map(data => (
+            <RandomProperty
+              key={data.id}
+              tall={data.tall}
+              up={data.up}
+              edge={edge}
+              background={background}
+              fontSize={fontSize}
+            >
+              {data.name}
+            </RandomProperty>
           ))}
         </Spinner>
       </Scene>
@@ -100,4 +125,16 @@ const Face = styled.div`
   background: ${props => props.background};
   border: 2px solid white;
   transform: ${props => props.angle} translateZ(${props => props.edge / 2}px);
+`;
+
+const RandomProperty = styled.div`
+  position: absolute;
+  display: flex;
+  min-width: 150px;
+  height: 50px;
+  font-size: 20px;
+  background: ${props => props.background};
+  border: 2px solid white;
+  transform: rotateY(${props => props.tall}deg) rotateX(90deg)
+    translateZ(${props => props.up}px) translateX(${props => props.edge}px);
 `;

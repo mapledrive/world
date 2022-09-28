@@ -5,14 +5,14 @@ import RotatingCube from './RotatingCube';
 
 export const Modal = ({ builtin, hideModal }) => {
   if (builtin === '') return null;
-
   const propertiez = getAllPropertyNames(builtin);
-  console.log(propertiez.toString());
   return (
     <StyledModalMain>
       {builtin}
       <RotatingCube />
-      {propertiez.toString()}
+      {propertiez.map(x => (
+        <Tag key={x}>{x}</Tag>
+      ))}
       <StyledClose onClick={hideModal}>
         <SvgComponent />
       </StyledClose>
@@ -20,15 +20,8 @@ export const Modal = ({ builtin, hideModal }) => {
   );
 };
 
-const SvgComponent = props => (
-  <svg
-    className='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'
-    aria-hidden='true'
-    viewBox='0 0 24 24'
-    data-testid='CloseIcon'
-    fill='rgb(158, 158, 158)'
-    {...props}
-  >
+const SvgComponent = () => (
+  <svg viewBox='0 0 24 24' fill='rgb(158, 158, 158)'>
     <path d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z' />
   </svg>
 );
@@ -66,8 +59,8 @@ const StyledClose = styled.div`
 
 const StyledModalMain = styled.section`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   height: 500px;
   width: 500px;
   background: #fff;
@@ -80,6 +73,15 @@ const StyledModalMain = styled.section`
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px,
     rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+`;
+
+const Tag = styled.span`
+  padding: 0px;
+  background: grey;
+  margin: 2px;
+  width: 150px;
+  height: 15px;
+  font-size: 10px;
 `;
 
 function getAllPropertyNames(obj) {
