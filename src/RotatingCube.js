@@ -268,6 +268,7 @@ function restructurization(array) {
     ) {
       return { name: value, tall: '90', up: getRandomNumberBetween(-120, 20) };
     }
+    return null;
   });
   return newarray;
 }
