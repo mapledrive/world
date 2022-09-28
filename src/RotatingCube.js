@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 function getRandomNumberBetween(min, max) {
@@ -15,17 +15,22 @@ const faceData = [
   { face: 6, angle: 'rotateX(-90deg)', name: 6 },
 ];
 
-const lopast = [
-  { id: 3, tall: '360', up: getRandomNumberBetween(-120, 20), name: 3 },
-  { id: 1, tall: '180', up: getRandomNumberBetween(-120, 20), name: 1 },
-  { id: 2, tall: '270', up: getRandomNumberBetween(-120, 20), name: 2 },
-  { id: 4, tall: '90', up: getRandomNumberBetween(-120, 20), name: 4 },
-];
-
 const Cube = props => {
-  const { edge, background, fontSize } = props;
+  const { edge, background, fontSize, builtin } = props;
   const [currentRotation, setCurrentRotation] = useState(45);
   const handleSpin = () => setCurrentRotation(currentRotation + 90);
+
+  // const properties = getAllPropertyNames(builtin);
+  // console.log(properties, 'properties');
+  // const final = restructurization(properties);
+  // console.log(final, 'final');
+
+  // prepare list of objects
+  const final = useMemo(() => {
+    const properties = getAllPropertyNames(builtin);
+    console.log('final');
+    return restructurization(properties);
+  }, [builtin]);
 
   return (
     <Container>
@@ -42,9 +47,12 @@ const Cube = props => {
               {data.name}
             </Face>
           ))}
-          {lopast.map(data => (
+          {/* {properties.map(x => (
+            <Tag key={x}>{x}</Tag>
+          ))} */}
+          {final.map(data => (
             <RandomProperty
-              key={data.id}
+              key={data.name}
               tall={data.tall}
               up={data.up}
               edge={edge}
@@ -138,3 +146,128 @@ const RandomProperty = styled.div`
   transform: rotateY(${props => props.tall}deg) rotateX(90deg)
     translateZ(${props => props.up}px) translateX(${props => props.edge}px);
 `;
+
+function getAllPropertyNames(obj) {
+  let builtinObj;
+  if (obj === 'Number') {
+    builtinObj = (5.3).__proto__.constructor;
+  }
+  if (obj === 'String') {
+    builtinObj = ''.__proto__.constructor;
+  }
+  if (obj === 'Boolean') {
+    builtinObj = true.__proto__.constructor;
+  }
+  if (obj === 'Object') {
+    builtinObj = {}.__proto__.constructor;
+  }
+  if (obj === 'Array') {
+    builtinObj = [].__proto__.constructor;
+  }
+  if (obj === 'Function') {
+    builtinObj = x => x.__proto__.constructor;
+  }
+  if (obj === 'Date') {
+    builtinObj = new Date.__proto__.constructor();
+  }
+  if (obj === 'RegExp') {
+    builtinObj = /one/.__proto__.constructor;
+  }
+  if (obj === 'Error') {
+    builtinObj = Error.__proto__.constructor;
+  }
+  if (obj === 'Promise') {
+    builtinObj = new Promise.__proto__.constructor();
+  }
+  if (obj === 'Symbol') {
+    builtinObj = Symbol().__proto__.constructor;
+  }
+  if (obj === 'Generator') {
+    builtinObj = (function* () {})().__proto__.constructor;
+  }
+  if (obj === 'GeneratorF') {
+    builtinObj = function* () {}.constructor;
+  }
+  if (obj === 'Map') {
+    builtinObj = new Map().__proto__.constructor;
+  }
+  if (obj === 'Set') {
+    builtinObj = new Set().__proto__.constructor;
+  }
+  if (obj === 'WeakMap') {
+    builtinObj = new new WeakMap().__proto__.constructor();
+  }
+  if (obj === 'WeakSet') {
+    builtinObj = new WeakSet().__proto__.constructor;
+  }
+  if (obj === 'TypedArray') {
+    builtinObj = new Int8Array(8).__proto__.constructor;
+  }
+  if (obj === 'Reflect') {
+    builtinObj = null;
+  }
+  if (obj === 'Proxy') {
+    builtinObj = new Proxy({}, {});
+  }
+  if (obj === 'ArrayBuffer') {
+    builtinObj = new ArrayBuffer(8).__proto__.constructor;
+  }
+  if (obj === 'DataView') {
+    builtinObj = new DataView(new ArrayBuffer(16), 0).__proto__.constructor;
+  }
+  if (obj === 'AsyncFunc') {
+    builtinObj = async function () {}.constructor;
+  }
+
+  return [...new Set(Object.getOwnPropertyNames(builtinObj))];
+}
+
+function restructurization(array) {
+  const newarray = array.map(function (value, index) {
+    if (
+      index === 0 ||
+      index === 4 ||
+      index === 8 ||
+      index === 12 ||
+      index === 16 ||
+      index === 20 ||
+      index === 24
+    ) {
+      return { name: value, tall: '180', up: getRandomNumberBetween(-120, 20) };
+    }
+    if (
+      index === 1 ||
+      index === 5 ||
+      index === 9 ||
+      index === 13 ||
+      index === 17 ||
+      index === 21 ||
+      index === 25
+    ) {
+      return { name: value, tall: '270', up: getRandomNumberBetween(-120, 20) };
+    }
+    if (
+      index === 2 ||
+      index === 6 ||
+      index === 10 ||
+      index === 14 ||
+      index === 18 ||
+      index === 22 ||
+      index === 26
+    ) {
+      return { name: value, tall: '360', up: getRandomNumberBetween(-120, 20) };
+    }
+    if (
+      index === 3 ||
+      index === 7 ||
+      index === 11 ||
+      index === 15 ||
+      index === 19 ||
+      index === 23 ||
+      index === 27
+    ) {
+      return { name: value, tall: '90', up: getRandomNumberBetween(-120, 20) };
+    }
+  });
+  return newarray;
+}

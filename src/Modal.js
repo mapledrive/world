@@ -5,14 +5,11 @@ import RotatingCube from './RotatingCube';
 
 export const Modal = ({ builtin, hideModal }) => {
   if (builtin === '') return null;
-  const propertiez = getAllPropertyNames(builtin);
+
   return (
     <StyledModalMain>
       {builtin}
-      <RotatingCube />
-      {propertiez.map(x => (
-        <Tag key={x}>{x}</Tag>
-      ))}
+      <RotatingCube builtin={builtin} />
       <StyledClose onClick={hideModal}>
         <SvgComponent />
       </StyledClose>
@@ -74,87 +71,3 @@ const StyledModalMain = styled.section`
   box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px,
     rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
 `;
-
-const Tag = styled.span`
-  padding: 0px;
-  background: grey;
-  margin: 2px;
-  width: 150px;
-  height: 15px;
-  font-size: 10px;
-`;
-
-function getAllPropertyNames(obj) {
-  let builtinObj;
-  if (obj === 'Number') {
-    builtinObj = (5.3).__proto__.constructor;
-  }
-  if (obj === 'String') {
-    builtinObj = ''.__proto__.constructor;
-  }
-  if (obj === 'Boolean') {
-    builtinObj = true.__proto__.constructor;
-  }
-  if (obj === 'Object') {
-    builtinObj = {}.__proto__.constructor;
-  }
-  if (obj === 'Array') {
-    builtinObj = [].__proto__.constructor;
-  }
-  if (obj === 'Function') {
-    builtinObj = x => x.__proto__.constructor;
-  }
-  if (obj === 'Date') {
-    builtinObj = new Date.__proto__.constructor();
-  }
-  if (obj === 'RegExp') {
-    builtinObj = /one/.__proto__.constructor;
-  }
-  if (obj === 'Error') {
-    builtinObj = Error.__proto__.constructor;
-  }
-  if (obj === 'Promise') {
-    builtinObj = new Promise.__proto__.constructor();
-  }
-  if (obj === 'Symbol') {
-    builtinObj = Symbol().__proto__.constructor;
-  }
-  if (obj === 'Generator') {
-    builtinObj = (function* () {})().__proto__.constructor;
-  }
-  if (obj === 'GeneratorF') {
-    builtinObj = function* () {}.constructor;
-  }
-  if (obj === 'Map') {
-    builtinObj = new Map().__proto__.constructor;
-  }
-  if (obj === 'Set') {
-    builtinObj = new Set().__proto__.constructor;
-  }
-  if (obj === 'WeakMap') {
-    builtinObj = new new WeakMap().__proto__.constructor();
-  }
-  if (obj === 'WeakSet') {
-    builtinObj = new WeakSet().__proto__.constructor;
-  }
-  if (obj === 'TypedArray') {
-    builtinObj = new Int8Array(8).__proto__.constructor;
-  }
-  if (obj === 'Reflect') {
-    builtinObj = null;
-  }
-  if (obj === 'Proxy') {
-    builtinObj = new Proxy({}, {});
-  }
-  if (obj === 'ArrayBuffer') {
-    builtinObj = new ArrayBuffer(8).__proto__.constructor;
-  }
-  if (obj === 'DataView') {
-    builtinObj = new DataView(new ArrayBuffer(16), 0).__proto__.constructor;
-  }
-  if (obj === 'AsyncFunc') {
-    builtinObj = async function () {}.constructor;
-  }
-
-  return [...new Set(Object.getOwnPropertyNames(builtinObj))];
-}
