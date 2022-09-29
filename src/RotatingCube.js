@@ -1,11 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
-
-function getRandomNumberBetween(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-console.log(getRandomNumberBetween(-120, 20));
+import { getRandomNumberBetween } from './utils';
 const faceData = [
   { face: 1, angle: 'rotateY(270deg)', name: 1 },
   { face: 2, angle: 'rotateY(360deg)', name: 2 },
@@ -23,8 +18,6 @@ const Cube = props => {
   // prepare list of objects like { name: "prototype", tall: "180", up: -32 }
   const final = useMemo(() => {
     const properties = getAllPropertyNames(builtin.name);
-    console.log(properties);
-
     return restructurization(properties);
   }, [builtin]);
 
