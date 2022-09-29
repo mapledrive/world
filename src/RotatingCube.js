@@ -10,7 +10,7 @@ const faceData = [
   { face: 6, angle: 'rotateX(-90deg)', name: 6 },
 ];
 
-const Cube = props => {
+const RotatingCube = props => {
   const { edge, fontSize, builtin } = props; // cube side, font in cube, object { id: 1, name: 'Promise', mainColor: 'purple' }
   const [currentRotation, setCurrentRotation] = useState(45);
   const handleSpin = () => setCurrentRotation(currentRotation + 90);
@@ -38,17 +38,65 @@ const Cube = props => {
             </Face>
           ))}
           {final.map(data => (
-            <RandomProperty
-              key={data.name}
-              tall={data.tall}
-              up={data.up}
-              edge={edge}
-              background={builtin.mainColor}
-              fontSize={fontSize}
-              darkborder={builtin.darkborder}
-            >
-              {data.name}
-            </RandomProperty>
+            <React.Fragment key={data.name}>
+              {data.name === 'length' && (
+                <LowProperty
+                  key={data.name}
+                  tall={data.tall}
+                  up={data.up}
+                  edge={edge}
+                  background={builtin.mainColor}
+                  fontSize={fontSize}
+                  darkborder={builtin.darkborder}
+                  mover={0}
+                >
+                  {data.name}
+                </LowProperty>
+              )}
+              {data.name === 'prototype' && (
+                <LowProperty
+                  key={data.name}
+                  tall={data.tall}
+                  up={data.up}
+                  edge={edge}
+                  background={builtin.mainColor}
+                  fontSize={fontSize}
+                  darkborder={builtin.darkborder}
+                  mover={50}
+                >
+                  {data.name}
+                </LowProperty>
+              )}
+              {data.name === 'name' && (
+                <LowProperty
+                  key={data.name}
+                  tall={data.tall}
+                  up={data.up}
+                  edge={edge}
+                  background={builtin.mainColor}
+                  fontSize={fontSize}
+                  darkborder={builtin.darkborder}
+                  mover={100}
+                >
+                  {data.name}
+                </LowProperty>
+              )}
+              {data.name !== 'length' &&
+                data.name !== 'prototype' &&
+                data.name !== 'name' && (
+                  <RandomProperty
+                    key={data.name}
+                    tall={data.tall}
+                    up={data.up}
+                    edge={edge}
+                    background={builtin.mainColor}
+                    fontSize={fontSize}
+                    darkborder={builtin.darkborder}
+                  >
+                    {data.name}
+                  </RandomProperty>
+                )}
+            </React.Fragment>
           ))}
         </Spinner>
       </Scene>
@@ -56,13 +104,13 @@ const Cube = props => {
   );
 };
 
-Cube.defaultProps = {
+RotatingCube.defaultProps = {
   edge: '150',
   background: 'rgba(141, 148, 249, 0.5)',
   fontSize: '50',
 };
 
-export default Cube;
+export default RotatingCube;
 
 /* start cube */
 const Container = styled.div`
@@ -141,6 +189,23 @@ const RandomProperty = styled.div`
   border: 2px solid ${props => (props.darkborder ? 'black' : 'white')};
   transform: rotateY(${props => props.tall}deg) rotateX(90deg)
     translateZ(${props => props.up}px) translateX(${props => props.edge}px);
+`;
+
+const LowProperty = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: ${props => props.edge}px;
+  text-align: center;
+  font-size: 10px;
+  color: ${props => (props.darkborder ? 'black' : 'white')};
+  user-select: none;
+  background: ${props => props.background};
+  border: 2px solid ${props => (props.darkborder ? 'black' : 'white')};
+  transform: ${props => props.angle} translateY(150px)
+    translateX(${props => props.mover}px);
 `;
 
 // put built in object like Array Object Function

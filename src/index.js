@@ -234,7 +234,7 @@ const sidebarData = [
   { id: 4, name: 'Function', mainColor: '#50c878', darkborder: true },
   { id: 5, name: 'Array', mainColor: '#FFBE32', darkborder: true },
   { id: 6, name: 'Object', mainColor: 'white', darkborder: true },
-  { id: 7, name: 'Boolean', mainColor: '#ed9121', darkborder: false },
+  { id: 7, name: 'Boolean', mainColor: '#ed9121', darkborder: true },
   { id: 8, name: 'String', mainColor: 'grey', darkborder: false },
   { id: 9, name: 'Number', mainColor: 'black', darkborder: false },
 ];
