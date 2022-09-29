@@ -11,20 +11,19 @@ import { LeftSidebar } from './LeftSidebar';
 import { Modal } from './Modal';
 import OpenSans from './fonts/opensans.woff2';
 import Roboto from './fonts/roboto.woff2';
-import img from './caezar.jpg';
-//  import lamp from './lamp.svg';
-import frog from './frog.jpg';
-import provider from './provider.jpg';
-import app from './app.png';
-import createslice from './createslice.jpg';
-import name from './name.jpg';
-import initialstate from './initialstate.jpg';
-import useselector from './useselector.jpg';
-import safe from './safe.jpg';
-import disruptor from './disruptor.jpg';
-import bullet from './bullet.jpg';
-import slice from './slice.jpg';
-import sun from './sun.jpg';
+import img from './assets/caezar.jpg';
+import frog from './assets/frog.jpg';
+import provider from './assets/provider.jpg';
+import app from './assets/app.png';
+import createslice from './assets/createslice.jpg';
+import name from './assets/name.jpg';
+import initialstate from './assets/initialstate.jpg';
+import useselector from './assets/useselector.jpg';
+import safe from './assets/safe.jpg';
+import disruptor from './assets/disruptor.jpg';
+import bullet from './assets/bullet.jpg';
+import slice from './assets/slice.jpg';
+import sun from './assets/sun.jpg';
 
 const App = () => {
   return (
