@@ -34,7 +34,7 @@ const RotatingCube = props => {
               fontSize={fontSize}
               darkborder={builtin.darkborder}
             >
-              {data.name}
+              {data.face === 5 && builtin.name}
             </Face>
           ))}
           {final.map(data => (
@@ -107,14 +107,14 @@ const RotatingCube = props => {
 RotatingCube.defaultProps = {
   edge: '150',
   background: 'rgba(141, 148, 249, 0.5)',
-  fontSize: '50',
+  fontSize: '30',
 };
 
 export default RotatingCube;
 
 /* start cube */
 const Container = styled.div`
-  height: 300px;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -164,9 +164,9 @@ const Face = styled.div`
   height: ${props => props.edge}px;
   text-align: center;
   font-size: ${props => props.fontSize}px;
-  color: ${props =>
-    props.darkborder ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1)'};
+  color: ${props => (props.darkborder ? 'black' : 'white')};
   user-select: none;
+  word-wrap: break-word;
   background: ${props => props.background};
   opacity: 0.5;
   border: 2px solid ${props => (props.darkborder ? 'black' : 'white')};
