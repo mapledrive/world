@@ -16,23 +16,17 @@ const faceData = [
 ];
 
 const Cube = props => {
-  const { edge, fontSize, builtin } = props;
+  const { edge, fontSize, builtin } = props; // cube side, font in cube, object { id: 1, name: 'Promise', mainColor: 'purple' }
   const [currentRotation, setCurrentRotation] = useState(45);
   const handleSpin = () => setCurrentRotation(currentRotation + 90);
 
-  // const properties = getAllPropertyNames(builtin);
-  // console.log(properties, 'properties');
-  // const final = restructurization(properties);
-  // console.log(final, 'final');
-
-  // prepare list of objects
+  // prepare list of objects like { name: "prototype", tall: "180", up: -32 }
   const final = useMemo(() => {
     const properties = getAllPropertyNames(builtin.name);
+    console.log(properties);
 
     return restructurization(properties);
   }, [builtin]);
-
-  console.log('final', final);
 
   return (
     <Container>
@@ -49,9 +43,6 @@ const Cube = props => {
               {data.name}
             </Face>
           ))}
-          {/* {properties.map(x => (
-            <Tag key={x}>{x}</Tag>
-          ))} */}
           {final.map(data => (
             <RandomProperty
               key={data.name}
@@ -151,6 +142,8 @@ const RandomProperty = styled.div`
     translateZ(${props => props.up}px) translateX(${props => props.edge}px);
 `;
 
+// put built in object like Array Object Function
+// returns array of property names for builtin object
 function getAllPropertyNames(obj) {
   let builtinObj;
   if (obj === 'Number') {
@@ -208,7 +201,7 @@ function getAllPropertyNames(obj) {
     builtinObj = new Int8Array(8).__proto__.constructor;
   }
   if (obj === 'Reflect') {
-    builtinObj = null;
+    builtinObj = {};
   }
   if (obj === 'Proxy') {
     builtinObj = new Proxy({}, {});
@@ -219,7 +212,28 @@ function getAllPropertyNames(obj) {
   if (obj === 'DataView') {
     builtinObj = new DataView(new ArrayBuffer(16), 0).__proto__.constructor;
   }
-  if (obj === 'AsyncFunc') {
+  if (obj === 'SharedArrayBuffer') {
+    builtinObj = {};
+  }
+  if (obj === 'Atomics') {
+    builtinObj = {};
+  }
+  if (obj === 'BigInt') {
+    builtinObj = 10n.__proto__.constructor;
+  }
+  if (obj === 'Math') {
+    builtinObj = {};
+  }
+  if (obj === 'Intl') {
+    builtinObj = Intl;
+  }
+  if (obj === 'JSON') {
+    builtinObj = JSON;
+  }
+  if (obj === 'AsyncGeneratorFunction') {
+    builtinObj = {};
+  }
+  if (obj === 'AsyncFunction') {
     builtinObj = async function () {}.constructor;
   }
 
