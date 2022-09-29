@@ -9,18 +9,7 @@ import {
   SettingsIcon,
 } from './style';
 
-const footerData = [
-  { id: 1, name: 'SharedArBuf', mainColor: 'green' },
-  { id: 2, name: 'Atomics', mainColor: 'olive' },
-  { id: 3, name: 'BigInt', mainColor: 'whitesmoke' },
-  { id: 4, name: 'Math', mainColor: 'whitesmoke' },
-  { id: 5, name: 'Intl', mainColor: 'whitesmoke' },
-  { id: 6, name: 'JSON', mainColor: 'whitesmoke' },
-  { id: 7, name: 'AsyGenFunc', mainColor: 'red' },
-  { id: 8, name: 'AsyncFunc', mainColor: '#ffbf00' },
-];
-
-export const BottomNavigation = ({ showModal }) => {
+export const BottomNavigation = ({ footerData, showModal }) => {
   return (
     <OverlayBottomMenu>
       <HorizontalMenu>
@@ -28,7 +17,7 @@ export const BottomNavigation = ({ showModal }) => {
           <BaseButton
             key={data.id}
             id={data.id}
-            onClick={() => showModal(data.name)}
+            onClick={() => showModal(data)}
           >
             <LoadingContentWrapper>
               <ContentWrapper mainColor={data.mainColor}>

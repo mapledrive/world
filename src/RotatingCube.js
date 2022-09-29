@@ -16,7 +16,7 @@ const faceData = [
 ];
 
 const Cube = props => {
-  const { edge, background, fontSize, builtin } = props;
+  const { edge, fontSize, builtin } = props;
   const [currentRotation, setCurrentRotation] = useState(45);
   const handleSpin = () => setCurrentRotation(currentRotation + 90);
 
@@ -27,10 +27,12 @@ const Cube = props => {
 
   // prepare list of objects
   const final = useMemo(() => {
-    const properties = getAllPropertyNames(builtin);
-    console.log('final');
+    const properties = getAllPropertyNames(builtin.name);
+
     return restructurization(properties);
   }, [builtin]);
+
+  console.log('final', final);
 
   return (
     <Container>
@@ -41,7 +43,7 @@ const Cube = props => {
               key={data.face}
               angle={data.angle}
               edge={edge}
-              background={background}
+              background={builtin.mainColor}
               fontSize={fontSize}
             >
               {data.name}
@@ -56,7 +58,7 @@ const Cube = props => {
               tall={data.tall}
               up={data.up}
               edge={edge}
-              background={background}
+              background={builtin.mainColor}
               fontSize={fontSize}
             >
               {data.name}
@@ -131,6 +133,7 @@ const Face = styled.div`
   color: black;
   user-select: none;
   background: ${props => props.background};
+  opacity: 0.5;
   border: 2px solid white;
   transform: ${props => props.angle} translateZ(${props => props.edge / 2}px);
 `;
@@ -142,6 +145,7 @@ const RandomProperty = styled.div`
   height: 50px;
   font-size: 20px;
   background: ${props => props.background};
+  opacity: 0.5;
   border: 2px solid white;
   transform: rotateY(${props => props.tall}deg) rotateX(90deg)
     translateZ(${props => props.up}px) translateX(${props => props.edge}px);

@@ -40,18 +40,18 @@ const App = () => {
 export default App;
 
 const AppLayout = () => {
-  const [builtin, setBuiltin] = useState('');
+  const [builtin, setBuiltin] = useState({});
 
-  const showModal = name => {
-    if (builtin === name) {
+  const showModal = obj => {
+    if (Object.keys(obj).length === 0 || builtin.name === obj.name) {
       hideModal();
     } else {
-      setBuiltin(name);
+      setBuiltin(obj);
     }
   };
 
   const hideModal = () => {
-    setBuiltin('');
+    setBuiltin({});
   };
 
   const [boxes, setBoxes] = useState({
@@ -137,9 +137,9 @@ const AppLayout = () => {
           </Box>
         );
       })}
-      <LeftSidebar showModal={showModal} />
-      <TopNavigation showModal={showModal} />
-      <BottomNavigation showModal={showModal} />
+      <LeftSidebar sidebarData={sidebarData} showModal={showModal} />
+      <TopNavigation headerData={headerData} showModal={showModal} />
+      <BottomNavigation footerData={footerData} showModal={showModal} />
     </BasicLayout>
   );
 };
@@ -227,3 +227,42 @@ const StyledBox = styled.div`
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
+
+const sidebarData = [
+  { id: 1, name: 'Error', mainColor: 'red' },
+  { id: 2, name: 'RegExp', mainColor: 'pink' },
+  { id: 3, name: 'Date', mainColor: 'blue' },
+  { id: 4, name: 'Function', mainColor: 'green' },
+  { id: 5, name: 'Array', mainColor: '#FFBE32' },
+  { id: 6, name: 'Object', mainColor: 'white' },
+  { id: 7, name: 'Boolean', mainColor: '#ed9121' },
+  { id: 8, name: 'String', mainColor: 'grey' },
+  { id: 9, name: 'Number', mainColor: 'black' },
+];
+
+const headerData = [
+  { id: 1, name: 'Promise', mainColor: 'MediumPurple' },
+  { id: 2, name: 'Symbol', mainColor: ' #f9c34b' },
+  { id: 3, name: 'Generator', mainColor: '#ffe5b4' },
+  { id: 4, name: 'GeneratorF', mainColor: '#35f210' },
+  { id: 5, name: 'Map', mainColor: '#10c1da' },
+  { id: 6, name: 'Set', mainColor: 'black' },
+  { id: 7, name: 'WeakMap', mainColor: 'white' },
+  { id: 8, name: 'WeakSet', mainColor: '#8dd8b9' },
+  { id: 9, name: 'TypedArray', mainColor: '#ffff99' },
+  { id: 10, name: 'Reflect', mainColor: '#ffa500' },
+  { id: 11, name: 'Proxy', mainColor: 'LightPink' },
+  { id: 12, name: 'ArrayBuffer', mainColor: 'whitesmoke' },
+  { id: 13, name: 'DataView', mainColor: 'red' },
+];
+
+const footerData = [
+  { id: 1, name: 'SharedArrayBuffer', mainColor: 'green' },
+  { id: 2, name: 'Atomics', mainColor: 'olive' },
+  { id: 3, name: 'BigInt', mainColor: 'whitesmoke' },
+  { id: 4, name: 'Math', mainColor: 'whitesmoke' },
+  { id: 5, name: 'Intl', mainColor: 'whitesmoke' },
+  { id: 6, name: 'JSON', mainColor: 'whitesmoke' },
+  { id: 7, name: 'AsyGenFunc', mainColor: 'red' },
+  { id: 8, name: 'AsyncFunc', mainColor: '#ffbf00' },
+];

@@ -9,19 +9,7 @@ import {
   SettingsIcon,
 } from './style';
 
-const sidebarData = [
-  { id: 1, name: 'Error', mainColor: 'red' },
-  { id: 2, name: 'RegExp', mainColor: 'pink' },
-  { id: 3, name: 'Date', mainColor: 'blue' },
-  { id: 4, name: 'Function', mainColor: 'green' },
-  { id: 5, name: 'Array', mainColor: '#FFBE32' },
-  { id: 6, name: 'Object', mainColor: 'white' },
-  { id: 7, name: 'Boolean', mainColor: '#ed9121' },
-  { id: 8, name: 'String', mainColor: 'grey' },
-  { id: 9, name: 'Number', mainColor: 'black' },
-];
-
-export const LeftSidebar = ({ showModal }) => {
+export const LeftSidebar = ({ sidebarData, showModal }) => {
   return (
     <OverlayTopMenuSidebar>
       <LeftMenu>
@@ -29,7 +17,7 @@ export const LeftSidebar = ({ showModal }) => {
           <BaseButtonSidebar
             key={data.id}
             id={data.id}
-            onClick={() => showModal(data.name)}
+            onClick={() => showModal(data)}
           >
             <LoadingContentWrapper>
               <ContentWrapper mainColor={data.mainColor}>

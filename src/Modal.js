@@ -4,11 +4,11 @@ import RotatingCube from './RotatingCube';
 // https://codepen.io/alligatorio/pen/aYzMKL
 
 export const Modal = ({ builtin, hideModal }) => {
-  if (builtin === '') return null;
+  if (Object.keys(builtin).length === 0) return null;
 
   return (
     <StyledModalMain>
-      {builtin}
+      {builtin.name}
       <RotatingCube builtin={builtin} />
       <StyledClose onClick={hideModal}>
         <SvgComponent />
