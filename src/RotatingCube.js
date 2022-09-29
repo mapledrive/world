@@ -32,6 +32,7 @@ const Cube = props => {
               edge={edge}
               background={builtin.mainColor}
               fontSize={fontSize}
+              darkborder={builtin.darkborder}
             >
               {data.name}
             </Face>
@@ -44,6 +45,7 @@ const Cube = props => {
               edge={edge}
               background={builtin.mainColor}
               fontSize={fontSize}
+              darkborder={builtin.darkborder}
             >
               {data.name}
             </RandomProperty>
@@ -114,23 +116,29 @@ const Face = styled.div`
   height: ${props => props.edge}px;
   text-align: center;
   font-size: ${props => props.fontSize}px;
-  color: black;
+  color: ${props =>
+    props.darkborder ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1)'};
   user-select: none;
   background: ${props => props.background};
   opacity: 0.5;
-  border: 2px solid white;
+  border: 2px solid ${props => (props.darkborder ? 'black' : 'white')};
   transform: ${props => props.angle} translateZ(${props => props.edge / 2}px);
 `;
 
 const RandomProperty = styled.div`
   position: absolute;
+  padding-left: 10px;
   display: flex;
-  min-width: 150px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 150px;
   height: 50px;
   font-size: 20px;
+  line-height: 50px;
   background: ${props => props.background};
-  opacity: 0.5;
-  border: 2px solid white;
+  color: ${props => (props.darkborder ? 'black' : 'white')};
+  opacity: 0.8;
+  border: 2px solid ${props => (props.darkborder ? 'black' : 'white')};
   transform: rotateY(${props => props.tall}deg) rotateX(90deg)
     translateZ(${props => props.up}px) translateX(${props => props.edge}px);
 `;
