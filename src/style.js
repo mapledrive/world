@@ -1,4 +1,41 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import OpenSans from './fonts/opensans.woff2';
+import Roboto from './fonts/roboto.woff2';
+
+export const GlobalStyle = createGlobalStyle`
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+    }
+  
+    * {
+      box-sizing: border-box;
+    }
+  
+    @font-face {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 400;
+      font-stretch: 100%;
+      src:  url(${OpenSans}) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+  
+    @font-face {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(${Roboto}) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    `;
 
 // Sidebar Menu
 export const OverlayTopMenuSidebar = styled.section`
@@ -135,4 +172,81 @@ export const SettingsIcon = styled.svg`
   display: block;
   height: 100%;
   width: 100%;
+`;
+
+export const BasicLayout = styled.div`
+  background: grey;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+`;
+
+export const StyledBox = styled.div`
+  box-sizing: border-box;
+  position: absolute;
+  border: 1px dashed gray;
+  background-color: white;
+  background-image: url(${props => props.image});
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 215px;
+  padding: 10px;
+  cursor: move;
+  user-select: none;
+`;
+
+export const StyledClose = styled.div`
+  display: inline-flex;
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 0px none;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+  padding: 8px;
+  border-radius: 50%;
+  overflow: visible;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  color: rgb(158, 158, 158);
+  width: 40px;
+  height: 40px;
+  &:hover {
+    background: #f5f5f5;
+  }
+`;
+
+export const ModalWrapper = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  height: 500px;
+  width: 500px;
+  padding: 25px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px,
+    rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+  h1 {
+    margin: 0;
+  }
 `;
