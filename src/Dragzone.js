@@ -14,7 +14,9 @@ import disruptor from './assets/disruptor.jpg';
 import bullet from './assets/bullet.jpg';
 import slice from './assets/slice.jpg';
 import sun from './assets/sun.jpg';
-import { BasicLayout, StyledBox } from './style';
+import glass from './assets/glass.svg';
+import frogcell from './assets/createReducer.jpg';
+import { BasicLayout, StyledBox, StyledCreateSlice } from './style';
 
 const Dragzone = () => {
   const [boxes, setBoxes] = useState({
@@ -39,8 +41,8 @@ const Dragzone = () => {
     },
     e: {
       top: 700,
-      left: 400,
-      title: 'createSlice-house',
+      left: 1500,
+      title: 'createSlice',
       image: `${createslice}`,
     },
     f: { top: 700, left: 500, title: 'initialState', image: `${initialstate}` },
@@ -62,6 +64,8 @@ const Dragzone = () => {
       image: `${safe}`,
     },
     o: { top: 700, left: 1300, title: 'dispatch', image: `${disruptor}` },
+    p: { top: 700, left: 400, title: 'createAction', image: `${glass}` },
+    r: { top: 700, left: 400, title: 'createReducer', image: `${frogcell}` },
   });
 
   const moveBox = useCallback(
@@ -107,6 +111,7 @@ const Dragzone = () => {
 export default Dragzone;
 
 const Box = ({ id, left, top, image, children }) => {
+  console.log(children);
   const [{ isDragging }, drag] = useDrag(
     () => ({
       type: 'box',
@@ -119,6 +124,13 @@ const Box = ({ id, left, top, image, children }) => {
   );
   if (isDragging) {
     return <div ref={drag} />;
+  }
+  if (children === 'createSlice') {
+    return (
+      <StyledCreateSlice ref={drag} image={image} style={{ left, top }}>
+        {children}
+      </StyledCreateSlice>
+    );
   }
   return (
     <StyledBox ref={drag} image={image} style={{ left, top }}>

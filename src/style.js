@@ -248,3 +248,18 @@ export const ModalWrapper = styled.section`
     margin: 0;
   }
 `;
+
+// REDUX INDIVIDUAL BOXES
+
+export const StyledCreateSlice = styled.div`
+  position: absolute;
+  border: 1px dashed gray;
+  background-color: white;
+  background-image: url(${props => props.image});
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+  cursor: move;
+  user-select: none;
+`;
