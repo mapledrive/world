@@ -185,7 +185,6 @@ export const BasicLayout = styled.div`
 `;
 
 export const StyledBox = styled.div`
-  box-sizing: border-box;
   position: absolute;
   border: 1px dashed gray;
   background-color: white;
@@ -204,7 +203,6 @@ export const StyledClose = styled.div`
   align-items: center;
   -moz-box-pack: center;
   justify-content: center;
-  box-sizing: border-box;
   background-color: transparent;
   border: 0px none;
   margin: 0px;
