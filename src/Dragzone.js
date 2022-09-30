@@ -16,7 +16,12 @@ import slice from './assets/slice.jpg';
 import sun from './assets/sun.jpg';
 import glass from './assets/glass.svg';
 import frogcell from './assets/createReducer.jpg';
-import { BasicLayout, StyledBox, StyledCreateSlice } from './style';
+import {
+  BasicLayout,
+  StyledBox,
+  StyledCreateSlice,
+  StyledAppHeap,
+} from './style';
 
 const Dragzone = () => {
   const [boxes, setBoxes] = useState({
@@ -34,9 +39,9 @@ const Dragzone = () => {
       image: `${provider}`,
     },
     d: {
-      top: 700,
-      left: 300,
-      title: 'App-mid field heap of functions',
+      top: 300,
+      left: 700,
+      title: 'App',
       image: `${app}`,
     },
     e: {
@@ -64,7 +69,7 @@ const Dragzone = () => {
       image: `${safe}`,
     },
     o: { top: 700, left: 1300, title: 'dispatch', image: `${disruptor}` },
-    p: { top: 700, left: 400, title: 'createAction', image: `${glass}` },
+    p: { top: 700, left: 300, title: 'createAction', image: `${glass}` },
     r: { top: 700, left: 400, title: 'createReducer', image: `${frogcell}` },
   });
 
@@ -130,6 +135,13 @@ const Box = ({ id, left, top, image, children }) => {
       <StyledCreateSlice ref={drag} image={image} style={{ left, top }}>
         {children}
       </StyledCreateSlice>
+    );
+  }
+  if (children === 'App') {
+    return (
+      <StyledAppHeap ref={drag} image={image} style={{ left, top }}>
+        {children}
+      </StyledAppHeap>
     );
   }
   return (

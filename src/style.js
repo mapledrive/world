@@ -263,3 +263,16 @@ export const StyledCreateSlice = styled.div`
   cursor: move;
   user-select: none;
 `;
+
+export const StyledAppHeap = styled.div`
+  position: absolute;
+  border: 1px dashed gray;
+  background-color: white;
+  background-image: url(${props => props.image});
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+  cursor: move;
+  user-select: none;
+`;
