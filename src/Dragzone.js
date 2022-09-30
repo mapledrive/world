@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import update from 'immutability-helper';
 import { useCallback, useState } from 'react';
 import { useDrop, useDrag } from 'react-dnd';

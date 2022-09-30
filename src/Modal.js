@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import RotatingCube from './RotatingCube';
 import { StyledClose, ModalWrapper } from './style';
 // https://codepen.io/alligatorio/pen/aYzMKL
