@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-export const RightSidebar = ({ sidebarData, handleGeneric }) => {
+export const RightSidebar = ({ rightSidebarData, handleGeneric }) => {
   return (
     <OverlayRightSidebar>
       <LeftMenu>
-        {sidebarData.map(data => (
+        {rightSidebarData.map(data => (
           <BaseButtonRightSidebar
             key={data.id}
             id={data.id}
-            onClick={() => handleGeneric(data)}
+            onClick={() => handleGeneric(data.name)}
+            visible={data.visible}
           >
             <LoadingContentWrapper>
               <ContentWrapper mainColor={data.mainColor}>

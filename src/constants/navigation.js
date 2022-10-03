@@ -11,30 +11,40 @@ export const sidebarData = [
 ];
 
 export const rightSidebarData = [
-  { id: 1, name: 'configureStore', mainColor: '#35f210', darkborder: true },
+  {
+    id: 1,
+    name: 'configureStore',
+    mainColor: '#35f210',
+    darkborder: true,
+    visible: false,
+  },
   {
     id: 2,
     name: 'createSlice',
     mainColor: '#35f210',
     darkborder: true,
+    visible: false,
   },
   {
     id: 3,
     name: 'createAction',
     mainColor: '#35f210',
     darkborder: false,
+    visible: false,
   },
   {
     id: 4,
-    name: 'Provider',
+    name: 'provider',
     mainColor: '#35f210',
     darkborder: true,
+    visible: false,
   },
   {
     id: 5,
     name: 'useSelector',
     mainColor: '#35f210',
     darkborder: true,
+    visible: false,
   },
   // { id: 6, name: 'createReducer', mainColor: '#35f210', darkborder: true },
   // { id: 7, name: 'createAction', mainColor: '#35f210', darkborder: true },

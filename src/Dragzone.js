@@ -1,21 +1,7 @@
 import update from 'immutability-helper';
 import { useCallback, useState } from 'react';
 import { useDrop, useDrag } from 'react-dnd';
-import img from './assets/caezar.jpg';
-import frog from './assets/frog.jpg';
-import provider from './assets/provider.jpg';
-import app from './assets/app.png';
-import createslice from './assets/createslice.jpg';
-import name from './assets/name.jpg';
-import initialstate from './assets/initialstate.jpg';
-import useselector from './assets/useselector.jpg';
-import safe from './assets/safe.jpg';
-import disruptor from './assets/disruptor.jpg';
-import bullet from './assets/bullet.jpg';
-import slice from './assets/slice.jpg';
-import sun from './assets/sun.jpg';
-import glass from './assets/glass.svg';
-import frogcell from './assets/createReducer.jpg';
+
 import {
   BasicLayout,
   StyledBox,
@@ -23,56 +9,7 @@ import {
   StyledAppHeap,
 } from './style';
 
-const Dragzone = () => {
-  const [boxes, setBoxes] = useState({
-    a: {
-      top: 700,
-      left: 100,
-      title: 'configure Store',
-      image: `${img}`,
-    },
-    b: { top: 700, left: 1400, title: 'store', image: `${sun}` },
-    c: {
-      top: 700,
-      left: 200,
-      title: 'provider',
-      image: `${provider}`,
-    },
-    d: {
-      top: 300,
-      left: 700,
-      title: 'App',
-      image: `${app}`,
-    },
-    e: {
-      top: 700,
-      left: 1500,
-      title: 'createSlice',
-      image: `${createslice}`,
-    },
-    f: { top: 700, left: 500, title: 'initialState', image: `${initialstate}` },
-    g: { top: 700, left: 600, title: 'name', image: `${name}` },
-    h: { top: 700, left: 700, title: 'reducers', image: `${frog}` },
-    j: { top: 700, left: 800, title: 'slice', image: `${slice}` },
-    k: { top: 700, left: 900, title: 'actions - object', image: `${bullet}` },
-    l: { top: 700, left: 1000, title: 'reducer - object', image: `${frog}` },
-    m: {
-      top: 700,
-      left: 1100,
-      title: 'useSelector-shlang',
-      image: `${useselector}`,
-    },
-    n: {
-      top: 700,
-      left: 1200,
-      title: 'useDispatch',
-      image: `${safe}`,
-    },
-    o: { top: 700, left: 1300, title: 'dispatch', image: `${disruptor}` },
-    p: { top: 700, left: 300, title: 'createAction', image: `${glass}` },
-    r: { top: 700, left: 400, title: 'createReducer', image: `${frogcell}` },
-  });
-
+const Dragzone = ({ boxes, setBoxes }) => {
   const moveBox = useCallback(
     (id, left, top) => {
       setBoxes(
@@ -102,9 +39,16 @@ const Dragzone = () => {
   return (
     <BasicLayout ref={drop}>
       {Object.keys(boxes).map(key => {
-        const { left, top, title, image } = boxes[key];
+        const { left, top, title, image, visible } = boxes[key];
         return (
-          <Box key={key} id={key} left={left} top={top} image={image}>
+          <Box
+            key={key}
+            visible={visible}
+            id={key}
+            left={left}
+            top={top}
+            image={image}
+          >
             {title}
           </Box>
         );
@@ -115,8 +59,7 @@ const Dragzone = () => {
 
 export default Dragzone;
 
-const Box = ({ id, left, top, image, children }) => {
-  console.log(children);
+const Box = ({ id, left, top, image, visible, children }) => {
   const [{ isDragging }, drag] = useDrag(
     () => ({
       type: 'box',
@@ -145,7 +88,7 @@ const Box = ({ id, left, top, image, children }) => {
     );
   }
   return (
-    <StyledBox ref={drag} image={image} style={{ left, top }}>
+    <StyledBox visible={visible} ref={drag} image={image} style={{ left, top }}>
       {children}
     </StyledBox>
   );

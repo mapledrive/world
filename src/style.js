@@ -186,12 +186,13 @@ export const BasicLayout = styled.div`
 
 export const StyledBox = styled.div`
   position: absolute;
+  display: ${props => (props.visible ? 'flex' : 'none')};
   border: 1px dashed gray;
   //background-color: white;
   background-image: url(${props => props.image});
   background-repeat: no-repeat;
   height: 100px;
-  width: 100px;
+  width: 215px;
   padding: 10px;
   cursor: move;
   user-select: none;
