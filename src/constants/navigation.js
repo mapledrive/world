@@ -46,10 +46,8 @@ export const rightSidebarData = [
     darkborder: true,
     visible: false,
   },
-  // { id: 6, name: 'createReducer', mainColor: '#35f210', darkborder: true },
-  // { id: 7, name: 'createAction', mainColor: '#35f210', darkborder: true },
-  // { id: 8, name: 'createSlice', mainColor: '#35f210', darkborder: false },
-  // { id: 9, name: 'createAsyncThunk', mainColor: '#35f210', darkborder: false },
+  { id: 6, name: 'createReducer', mainColor: '#35f210', darkborder: true },
+  { id: 7, name: 'createAsyncThunk', mainColor: '#35f210', darkborder: false },
   // {
   //   id: 10,
   //   name: 'createEntityAdapter',

@@ -41,7 +41,7 @@ const App = () => {
       visible: false,
     },
     b: {
-      top: 700,
+      top: 600,
       left: 800,
       title: 'slice',
       image: `${slice}`,
@@ -68,11 +68,17 @@ const App = () => {
       image: `${useselector}`,
       visible: false,
     },
-    f: { top: 700, left: 600, title: 'name', image: `${name}`, visible: false },
+    f: {
+      top: 500,
+      left: 400,
+      title: 'createReducer',
+      image: `${frogcell}`,
+      visible: false,
+    },
     g: {
       top: 700,
       left: 700,
-      title: 'reducers',
+      title: 'createAsyncThunk',
       image: `${frog}`,
       visible: false,
     },
@@ -97,6 +103,7 @@ const App = () => {
       image: `${frog}`,
       visible: false,
     },
+
     l: {
       top: 700,
       left: 1100,
@@ -173,30 +180,18 @@ const App = () => {
         e: { ...existingValues.e, visible: !existingValues.e.visible },
       }));
     }
-
-    console.log(e, 'ee');
-
-    // если пришло строка configureStore то надо сделать
-    // visible true у обьекта
-    // a: {
-    //   top: 700,
-    //   left: 100,
-    //   title: 'configure Store',
-    //   image: `${img}`,
-    //   visible: false,
-    // },
-    // наверху у этого компонента
-
-    // const _boxes = { ...boxes };
-    // const isClicked = e in checkedOrders;
-
-    // setBoxes(
-    //   update(boxes, {
-    //     [id]: {
-    //       $merge: { left, top },
-    //     },
-    //   })
-    // );
+    if (e === 'createReducer') {
+      setBoxes(existingValues => ({
+        ...existingValues,
+        f: { ...existingValues.f, visible: !existingValues.f.visible },
+      }));
+    }
+    if (e === 'createAsyncThunk') {
+      setBoxes(existingValues => ({
+        ...existingValues,
+        g: { ...existingValues.g, visible: !existingValues.g.visible },
+      }));
+    }
   };
 
   const hideModal = () => setBuiltin({});

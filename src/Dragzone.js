@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { useDrop, useDrag } from 'react-dnd';
 
 import {
