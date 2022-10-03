@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     `;
 
-// Sidebar Menu
+// Left Sidebar Menu
 export const OverlayTopMenuSidebar = styled.section`
   transform: translate(11px, -50%);
   top: 50vh;
@@ -187,7 +187,7 @@ export const BasicLayout = styled.div`
 export const StyledBox = styled.div`
   position: absolute;
   border: 1px dashed gray;
-  background-color: white;
+  //background-color: white;
   background-image: url(${props => props.image});
   background-repeat: no-repeat;
   height: 100px;

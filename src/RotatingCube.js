@@ -208,7 +208,7 @@ const LowProperty = styled.div`
     translateX(${props => props.mover}px);
 `;
 
-// put built in object like Array Object Function
+// parameter -  built in object like Array Object Function
 // returns array of property names for builtin object
 function getAllPropertyNames(obj) {
   let builtinObj;
@@ -248,7 +248,7 @@ function getAllPropertyNames(obj) {
   if (obj === 'Generator') {
     builtinObj = (function* () {})().__proto__.constructor;
   }
-  if (obj === 'GeneratorF') {
+  if (obj === 'GeneratorFunction') {
     builtinObj = function* () {}.constructor;
   }
   if (obj === 'Map') {
