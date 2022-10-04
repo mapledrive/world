@@ -1,3 +1,12 @@
+import caezar from '../assets/caezar.svg';
+import glasses from '../assets/glass.svg';
+import createslice from '../assets/createslice.svg';
+import provider from '../assets/radiation.svg';
+import useselector from '../assets/gas.svg';
+import createreducer from '../assets/cellfrog.svg';
+import createasyncthunk from '../assets/tank.svg';
+import useDispatch from '../assets/safe.svg';
+
 export const sidebarData = [
   { id: 1, name: 'Error', mainColor: 'red', darkborder: true },
   { id: 2, name: 'RegExp', mainColor: 'pink', darkborder: true },
@@ -17,6 +26,7 @@ export const rightSidebarData = [
     mainColor: '#35f210',
     darkborder: true,
     visible: false,
+    pics: caezar,
   },
   {
     id: 2,
@@ -24,6 +34,7 @@ export const rightSidebarData = [
     mainColor: '#35f210',
     darkborder: true,
     visible: false,
+    pics: createslice,
   },
   {
     id: 3,
@@ -31,13 +42,15 @@ export const rightSidebarData = [
     mainColor: '#35f210',
     darkborder: false,
     visible: false,
+    pics: glasses,
   },
   {
     id: 4,
-    name: 'provider',
+    name: 'Provider',
     mainColor: '#35f210',
     darkborder: true,
     visible: false,
+    pics: provider,
   },
   {
     id: 5,
@@ -45,15 +58,32 @@ export const rightSidebarData = [
     mainColor: '#35f210',
     darkborder: true,
     visible: false,
+    pics: useselector,
   },
-  { id: 6, name: 'createReducer', mainColor: '#35f210', darkborder: true },
-  { id: 7, name: 'createAsyncThunk', mainColor: '#35f210', darkborder: false },
-  // {
-  //   id: 10,
-  //   name: 'createEntityAdapter',
-  //   mainColor: '#35f210',
-  //   darkborder: false,
-  // },
+  {
+    id: 6,
+    name: 'createReducer',
+    mainColor: '#35f210',
+    darkborder: true,
+    visible: false,
+    pics: createreducer,
+  },
+  {
+    id: 7,
+    name: 'createAsyncThunk',
+    mainColor: '#35f210',
+    darkborder: false,
+    visible: false,
+    pics: createasyncthunk,
+  },
+  {
+    id: 7,
+    name: 'useDispatch',
+    mainColor: '#35f210',
+    darkborder: false,
+    visible: false,
+    pics: useDispatch,
+  },
   // {
   //   id: 11,
   //   name: 'createSelector',
