@@ -12,7 +12,6 @@ import {
   footerData,
 } from './constants/navigation';
 import frog from './assets/frog.jpg';
-import provider from './assets/provider.jpg';
 import app from './assets/app.png';
 import frogcell from './assets/createReducer.jpg';
 import name from './assets/name.jpg';
@@ -22,16 +21,16 @@ import disruptor from './assets/disruptor.jpg';
 import bullet from './assets/bullet.jpg';
 import slice from './assets/slice.jpg';
 import sunny from './assets/sunny.svg';
-import update from 'immutability-helper';
+import store from './assets/store.svg';
 
 const App = () => {
   const [builtin, setBuiltin] = useState({});
   const [boxes, setBoxes] = useState({
     a: {
       top: 100,
-      left: 700,
+      left: 800,
       title: 'store',
-      image: `${sunny}`,
+      image: `${store}`,
       visible: false,
     },
     b: {
@@ -49,10 +48,10 @@ const App = () => {
       visible: false,
     },
     d: {
-      top: 200,
-      left: 700,
-      title: 'provider',
-      image: `${provider}`,
+      top: 100,
+      left: 800,
+      title: '',
+      image: `${sunny}`,
       visible: false,
     },
     e: {

@@ -191,8 +191,8 @@ export const StyledBox = styled.div`
   //background-color: white;
   background-image: url(${props => props.image});
   background-repeat: no-repeat;
-  height: 100px;
-  width: 215px;
+  height: 200px;
+  width: 200px;
   padding: 10px;
   cursor: move;
   user-select: none;
