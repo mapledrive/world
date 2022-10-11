@@ -11,15 +11,13 @@ import {
   headerData,
   footerData,
 } from './constants/navigation';
-import frog from './assets/frog.jpg';
-import app from './assets/app.png';
-import frogcell from './assets/createReducer.jpg';
-import name from './assets/name.jpg';
-import initialstate from './assets/initialstate.jpg';
-import useselector from './assets/useselector.jpg';
-import disruptor from './assets/disruptor.jpg';
-import bullet from './assets/bullet.jpg';
-import slice from './assets/slice.jpg';
+import tank from './assets/tank.svg';
+import app from './assets/app.svg';
+import frogger from './assets/frogger.svg';
+import useselector from './assets/hose.svg';
+import disruptor from './assets/disruptor.svg';
+import bullet from './assets/bullet.svg';
+import slice from './assets/watermelon.svg';
 import sunny from './assets/sunny.svg';
 import store from './assets/store.svg';
 
@@ -43,7 +41,7 @@ const App = () => {
     c: {
       top: 700,
       left: 900,
-      title: 'actions',
+      title: 'action',
       image: `${bullet}`,
       visible: false,
     },
@@ -57,22 +55,22 @@ const App = () => {
     e: {
       top: 700,
       left: 1100,
-      title: 'useSelector',
+      title: 'useSelector value ',
       image: `${useselector}`,
       visible: false,
     },
     f: {
       top: 300,
       left: 300,
-      title: 'createReducer',
-      image: `${frogcell}`,
+      title: 'reducer',
+      image: `${frogger}`,
       visible: false,
     },
     g: {
       top: 350,
       left: 400,
       title: 'createAsyncThunk',
-      image: `${frog}`,
+      image: `${tank}`,
       visible: false,
     },
     j: {
@@ -86,7 +84,7 @@ const App = () => {
       top: 700,
       left: 1000,
       title: 'reducer - object',
-      image: `${frog}`,
+      image: `${frogger}`,
       visible: false,
     },
     z: {

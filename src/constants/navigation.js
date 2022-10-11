@@ -4,7 +4,7 @@ import createslice from '../assets/createslice.svg';
 import provider from '../assets/radiation.svg';
 import useselector from '../assets/gas.svg';
 import createreducer from '../assets/cellfrog.svg';
-import createasyncthunk from '../assets/tank.svg';
+import createasyncthunk from '../assets/tanknavigation.svg';
 import useDispatch from '../assets/safe.svg';
 
 export const sidebarData = [
@@ -77,7 +77,7 @@ export const rightSidebarData = [
     pics: createasyncthunk,
   },
   {
-    id: 7,
+    id: 8,
     name: 'useDispatch',
     mainColor: '#35f210',
     darkborder: false,
